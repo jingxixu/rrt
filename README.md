@@ -17,3 +17,9 @@ python demo.py
 <p align="center">
   <img src="environment.png", height="350">
 </p>
+
+## Part 1 - RRT (50%)
+See a video demo for this part [here](https://youtu.be/o-RCIhsLmqw).
+
+## Part 2 - Bidirectional RRT (50%)
+See a video demo for this part [here](https://youtu.be/4nFmFcLg5RQ).
