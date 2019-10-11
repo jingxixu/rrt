@@ -21,7 +21,7 @@ In the environment, there is a simplified 3DOF [UR5](https://www.universal-robot
 </p>
 
 
-## Detials and Rubrics
+## Details and Rubrics
 
 You should get yourself familiar with the `demo.py` file which contains simple example code using pybullet and an overall structure of the expected submission. Visit [here](https://pythonhosted.org/pybullet/) For detailed documentation of pybullet.
 
