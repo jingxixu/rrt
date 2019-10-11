@@ -8,25 +8,35 @@ In this lab, you are required to implement the Rapidly-exploring Random Tree (RR
 This repo is tested with python 2.7 and pybullet 2.5.6.
 
 ## Usage
-To load the pybullet simulated environment as shown below, simply run
+To load the pybullet simulated environment for this lab as shown below, simply run
 
 ```
 python demo.py
 ```
 
-In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm. The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks as obstacles.
-
-You should get yourself familiar with the `demo.py` file which contains simple example code using pybullet and an overall structure of the expected submission. In this lab, you do not need to call [`stepSimulation`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.czaspku18mzs) or [`setRealTimeSimulation`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.ohnirlot3njq) for real phisics simulation. The arm is controlled by [`resetJointState`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.p3s2oveabizm) and collision can be checked by first resetting the arm to the desired configuration and then use [`getClosestPoints`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.cb0co8y2vuvc).
+In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm. The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks and a plane as obstacles.
 
 <p align="center">
   <img src="environment.png", height="350">
 </p>
 
-## Part 1 - RRT (50%)
-See a video demo for this part [here](https://youtu.be/o-RCIhsLmqw).
 
-## Part 2 - Bidirectional RRT (50%)
-See a video demo for this part [here](https://youtu.be/4nFmFcLg5RQ).
+## Detials and Rubrics
+
+You should get yourself familiar with the `demo.py` file which contains simple example code using pybullet and an overall structure of the expected submission. Visit [here](https://pythonhosted.org/pybullet/) For detailed documentation of pybullet.
+
+In this lab, you do not need to call [`stepSimulation`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.czaspku18mzs) or [`setRealTimeSimulation`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.ohnirlot3njq) for real phisics simulation. The arm is controlled by [`resetJointState`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.p3s2oveabizm) and collision can be checked by first resetting the arm to the desired configuration and then use [`getClosestPoints`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.cb0co8y2vuvc). The collision types you should consider includes
+
+- self-collision of the robot arm
+- collision between the arm and the obstacles (including the plane and two blocks). Note that the arm base is fixed at 0.02m above the plane so initially there is no collision between the arm and the plane.
+
+You should also make sure you do not set the arm to a configuration that violates the joint limits. Joint limits (with other joint information) can be obtained through [`getJointInfo`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.la294ocbo43o) and current joint configuration and link pose can be obtained through [`getJointState`] and [`getLinkState`].
+
+### Part 1 - RRT (50%)
+In this part, you should implement the RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/o-RCIhsLmqw). 
+
+### Part 2 - Bidirectional RRT (50%)
+In this part, you should implement the bidirectional RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/4nFmFcLg5RQ).
 
 ## Submission Instructions
 TODO
