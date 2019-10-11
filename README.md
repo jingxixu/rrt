@@ -21,9 +21,9 @@ In the environment, there is a simplified 3DOF [UR5](https://www.universal-robot
 </p>
 
 
-## Details and Rubrics
+## Details and Rubric
 
-You should get yourself familiar with the `demo.py` file which contains simple example code using pybullet and an overall structure of the expected submission. Visit [here](https://pythonhosted.org/pybullet/) For detailed documentation of pybullet.
+You should get yourself familiar with the `demo.py` file which contains simple example code using pybullet and an overall structure of the expected submission. Visit [here](https://pythonhosted.org/pybullet/) for a detailed documentation of pybullet.
 
 In this lab, you do not need to call [`stepSimulation`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.czaspku18mzs) or [`setRealTimeSimulation`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.ohnirlot3njq) for real phisics simulation. The arm is controlled by [`resetJointState`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.p3s2oveabizm) and collision can be checked by first resetting the arm to the desired configuration and then use [`getClosestPoints`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.cb0co8y2vuvc). The collision types you should consider includes
 
@@ -35,8 +35,16 @@ You should also make sure you do not set the arm to a configuration that violate
 ### Part 1 - RRT (50%)
 In this part, you should implement the RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/o-RCIhsLmqw). 
 
+- Build the tree and visualization (30%). 
+- Find and visualize the solution path (10%).
+- Control the robot to move to the target configuration following the found path (10%). In your video you should rotate the camera in pybullet to show that no collision happens.
+
 ### Part 2 - Bidirectional RRT (50%)
 In this part, you should implement the bidirectional RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/4nFmFcLg5RQ).
+
+- Build the tree and visualization (30%). You should use different colors for different trees.
+- Find and visualize the solution path (10%).
+- Control the robot to move to the target configuration following the found path (10%). In your video you should rotate the camera in pybullet to show that no collision happens.
 
 ## Submission Instructions
 TODO
