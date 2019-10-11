@@ -30,7 +30,7 @@ In this lab, you do not need to call [`stepSimulation`](https://docs.google.com/
 - self-collision of the robot arm
 - collision between the arm and the obstacles (including the plane and two blocks). Note that the arm base is fixed at 0.02m above the plane so initially there is no collision between the arm and the plane.
 
-You should also make sure you do not set the arm to a configuration that violates the joint limits. Joint limits (with other joint information) can be obtained through [`getJointInfo`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.la294ocbo43o) and current joint configuration and link pose can be obtained through [`getJointState`] and [`getLinkState`].
+You should also make sure you do not set the arm to a configuration that violates the joint limits. Joint limits (with other joint information) can be obtained through [`getJointInfo`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.la294ocbo43o). Current joint configuration and link pose can be obtained through [`getJointState`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.p3s2oveabizm) and [`getLinkState`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.3v8gjd1epcrt).
 
 ### Part 1 - RRT (50%)
 In this part, you should implement the RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/o-RCIhsLmqw). 
