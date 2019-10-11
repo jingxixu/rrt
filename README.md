@@ -15,5 +15,5 @@ python demo.py
 ```
 
 <p align="center">
-  <img src="environment.png", height="450">
+  <img src="environment.png", height="350">
 </p>
