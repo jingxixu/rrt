@@ -39,12 +39,16 @@ In this part, you should implement the RRT algorithm to plan a collision-free mo
 - Find and visualize the solution path (10%).
 - Control the robot to move to the target configuration following the found path (10%). In your video you should rotate the camera in pybullet to show that no collision happens.
 
+We will test your code with the command `python demo.py`.
+
 ### Part 2 - Bidirectional RRT (50%)
 In this part, you should implement the bidirectional RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/4nFmFcLg5RQ).
 
 - Build the tree and visualization (30%). You should use different colors for different trees.
 - Find and visualize the solution path (10%).
 - Control the robot to move to the target configuration following the found path (10%). In your video you should rotate the camera in pybullet to show that no collision happens.
+
+We will test your code with the command `python demo.py --birrt`.
 
 ## Submission Instructions
 TODO
