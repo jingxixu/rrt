@@ -9,14 +9,10 @@ import argparse
 UR5_JOINT_INDICES = [0, 1, 2]
 
 
-def set_joint_position(body, joint, value):
-    p.resetJointState(body, joint, value)
-
-
 def set_joint_positions(body, joints, values):
     assert len(joints) == len(values)
     for joint, value in zip(joints, values):
-        set_joint_position(body, joint, value)
+        p.resetJointState(body, joint, value)
 
 
 def draw_sphere_marker(position, radius, color):
@@ -73,7 +69,7 @@ if __name__ == "__main__":
                            useFixedBase=True)
     obstacles = [plane, obstacle1, obstacle2]
 
-    ## start and goal
+    # start and goal
     start_conf = (-0.813358794499552, -0.37120422397572495, -0.754454729356351)
     start_position = (0.3998897969722748, -0.3993956744670868, 0.6173484325408936)
     goal_conf = (0.7527214782907734, -0.6521867735052328, -0.4949270744967443)
@@ -83,6 +79,12 @@ if __name__ == "__main__":
 
     # place holder to save the solution path
     path_conf = None
+
+    # get the collision checking function
+    from collision_utils import get_collision_fn
+    collision_fn = get_collision_fn(ur5, UR5_JOINT_INDICES, obstacles=obstacles,
+                                       attachments=[], self_collisions=True,
+                                       disabled_collisions=set())
 
     if not args.birrt:
         # using rrt

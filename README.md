@@ -2,19 +2,16 @@
 Lab 3 for [COMSW4733 Computational Aspects of Robotics](https://www.cs.columbia.edu/~allen/F19/) at Columbia University (Instructor: [Prof. Peter Allen](http://www.cs.columbia.edu/~allen/)).
 
 ## Introduction
-In this lab, you are required to implement the Rapidly-exploring Random Tree (RRT) algorithm for motion planning on a 3DOF robotic arm, using the [pybullet](https://pybullet.org/wordpress/) simulator.
-
-## Requirements
-This repo is tested with python 2.7 and pybullet 2.5.6.
+In this lab, you are required to implement the Rapidly-exploring Random Tree (RRT) algorithms for motion planning on a 3DOF robotic arm, using the [pybullet](https://pybullet.org/wordpress/) simulator.
 
 ## Usage
-To load the pybullet simulated environment for this lab as shown below, simply run
+This repo is tested with python 2.7 and pybullet 2.5.6. To load the pybullet simulated environment for this lab as shown below, simply run
 
 ```
 python demo.py
 ```
 
-In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm. The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks and a plane as obstacles.
+In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm (only the first three non-fixed joints are fixed). The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks and a plane as obstacles.
 
 <p align="center">
   <img src="environment.png", height="350">
