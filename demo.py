@@ -26,8 +26,9 @@ def remove_marker(marker_id):
 
 
 def get_args():
-    parser = argparse.ArgumentParser(description='Run Dynamic Grasping Experiment')
+    parser = argparse.ArgumentParser()
     parser.add_argument('--birrt', action='store_true', default=False)
+    parser.add_argument('--smoothing', action='store_true', default=False)
     args = parser.parse_args()
     return args
 
@@ -43,6 +44,13 @@ def birrt():
     #################################################
     # TODO your code to implement the birrt algorithm
     #################################################
+    pass
+
+
+def birrt_smoothing():
+    ################################################################
+    # TODO your code to implement the birrt algorithm with smoothing
+    ################################################################
     pass
 
 
@@ -86,12 +94,16 @@ if __name__ == "__main__":
                                        attachments=[], self_collisions=True,
                                        disabled_collisions=set())
 
-    if not args.birrt:
+    if args.birrt:
+        if args.smoothing:
+            # using birrt with smoothing
+            path_conf = birrt()
+        else:
+            # using birrt without smoothing
+            path_conf = birrt_smoothing()
+    else:
         # using rrt
         path_conf = rrt()
-    else:
-        # using birrt
-        path_conf = birrt()
 
     if path_conf is None:
         # pause here

@@ -18,17 +18,56 @@ In the environment, there is a simplified 3DOF [UR5](https://www.universal-robot
 </p>
 
 
+
+## Example Code Explanation
+
+You should get yourself familiar with the `demo.py` file which contains simple example code using pybullet and an overall structure of the expected submission. Visit [here](https://pythonhosted.org/pybullet/) for the detailed pybullet API.
+
+
+### Get Arguments
+```
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--birrt', action='store_true', default=False)
+    parser.add_argument('--smoothing', action='store_true', default=False)
+    args = parser.parse_args()
+    return args
+```
+Use `python demo.py` to run part 1.
+Use `python demo.py --birrt` to run part 2.
+Use `python demo,py --birrt --smoothing` to run extra credit.
+
+### Robot Control
+```
+def set_joint_positions(body, joints, values):
+    assert len(joints) == len(values)
+    for joint, value in zip(joints, values):
+        p.resetJointState(body, joint, value)
+```
+The `set_joint_positions` function calls pybullet [`resetJointState`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.p3s2oveabizm) to reset the robot arm. It takes the robot body id (`ur5`), the joint indices (`UR5_JOINT_INDICES`) and the corresponding joint values. This is the function that you should use to control the robot arm in this assignment.
+
+### Collision Checking
+```
+from collision_utils import get_collision_fn
+collision_fn = get_collision_fn(ur5, UR5_JOINT_INDICES, obstacles=obstacles,
+                                    attachments=[], self_collisions=True,
+                                    disabled_collisions=set())
+```
+We have provided you the function to check if a joint configuration is valid (collision-free and not voilating joint limits). Simply call `collision_fn(conf)` where `conf` is a array-type of three values. You can treat this function as a block box and you don't need to worry about its implementation. But you are welcome to take a closer look at `collision_utils.py` if interested.
+
+### Visualization
+```
+def draw_sphere_marker(position, radius, color):
+   vs_id = p.createVisualShape(p.GEOM_SPHERE, radius=radius, rgbaColor=color)
+   marker_id = p.createMultiBody(basePosition=position, baseCollisionShapeIndex=-1, baseVisualShapeIndex=vs_id)
+   return marker_id
+
+def remove_marker(marker_id):
+   p.removeBody(marker_id)
+```
+We have also provided you with a simple function `draw_sphere_marker` to create a sphere marker given its [x, y, z] position, radius and [r, g, b, a] color. `remove_marker` will cimply remove the corresponding marker by its id. In order to draw lines to visualize the tree, take a look at the pybullet function [addUserDebugLine](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.i3ffpefe7f3).
+
 ## Details and Rubric
-
-You should get yourself familiar with the `demo.py` file which contains simple example code using pybullet and an overall structure of the expected submission. Visit [here](https://pythonhosted.org/pybullet/) for a detailed documentation of pybullet.
-
-In this lab, you do not need to call [`stepSimulation`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.czaspku18mzs) or [`setRealTimeSimulation`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.ohnirlot3njq) for real phisics simulation. The arm is controlled by [`resetJointState`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.p3s2oveabizm) and collision can be checked by first resetting the arm to the desired configuration and then use [`getClosestPoints`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.cb0co8y2vuvc). The collision types you should consider includes
-
-- self-collision of the robot arm
-- collision between the arm and the obstacles (including the plane and two blocks). Note that the arm base is fixed at 0.02m above the plane so initially there is no collision between the arm and the plane.
-
-You should also make sure you do not set the arm to a configuration that violates the joint limits. Joint limits (with other joint information) can be obtained through [`getJointInfo`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.la294ocbo43o). Current joint configuration and link pose can be obtained through [`getJointState`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.p3s2oveabizm) and [`getLinkState`](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.3v8gjd1epcrt).
-
 ### Part 1 - RRT (50%)
 In this part, you should implement the RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/o-RCIhsLmqw). 
 
@@ -46,6 +85,18 @@ In this part, you should implement the bidirectional RRT algorithm to plan a col
 - Control the robot to move to the target configuration following the found path (10%). In your video you should rotate the camera in pybullet to show that no collision happens.
 
 We will test your code with the command `python demo.py --birrt`.
+
+### Extra Credit - Path Smoothing (10%)
+In this part, you should implement the following path smoothing algorithm on the found path with BiRRT. See a video demo for this part [here](https://youtu.be/ZaWURj-lgkQ).
+
+```
+Repeat N times:
+- Pick two points on the path at random
+- See if we can linearly interpolate between those points without collisions
+- If so, then snip out that segment of the path.
+```
+
+The video shows a smooting algorithm with N = 20. In your video, you should show a path shorter than the found path.
 
 ## Submission Instructions
 TODO
