@@ -49,9 +49,10 @@ def get_args():
     args = parser.parse_args()
     return args
 ```
-Use `python demo.py` to run [part 1](#part-1---rrt-50).
-Use `python demo.py --birrt` to run [part 2](#part-2---bidirectional-rrt-50).
-Use `python demo,py --birrt --smoothing` to run [extra credit](3extra-credit---path-smoothing-10).
+This function will set `args.birrt` and `args.smoothing` to `True` if `--birrt` and `--smoothing` are given in the command line.
+- Use `python demo.py` to run [part 1](#part-1---rrt-50).
+- Use `python demo.py --birrt` to run [part 2](#part-2---bidirectional-rrt-50).
+- Use `python demo,py --birrt --smoothing` to run [extra credit](3extra-credit---path-smoothing-10).
 
 ### Robot Control
 ```
@@ -105,7 +106,7 @@ In this part, you should implement the bidirectional RRT (BiRRT) algorithm to pl
 We will test your code with the command `python demo.py --birrt`.
 
 ### Extra Credit - Path Smoothing (10%)
-In this part, you should implement the following path smoothing algorithm on the found path with BiRRT. See a video demo for this part [here](https://youtu.be/ZaWURj-lgkQ).
+In this part, you should implement the following path smoothing algorithm on the found path with BiRRT. See a video demo for this part [here](https://youtu.be/wJ4rrIBirxg).
 
 ```
 Repeat N times:
