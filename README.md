@@ -11,7 +11,7 @@ This repo is tested with python 2.7 and pybullet 2.5.6. To load the pybullet sim
 python demo.py
 ```
 
-In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm (only the first three non-fixed joints are fixed). The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks and a plane as obstacles.
+In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm (only the first three non-fixed joints are kept). The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks and a plane as obstacles.
 
 <p align="center">
   <img src="environment.png", height="350">
@@ -33,9 +33,9 @@ def get_args():
     args = parser.parse_args()
     return args
 ```
-Use `python demo.py` to run part 1.
-Use `python demo.py --birrt` to run part 2.
-Use `python demo,py --birrt --smoothing` to run extra credit.
+Use `python demo.py` to run [part 1](#part-1---rrt-50).
+Use `python demo.py --birrt` to run [part 2](#part-2---bidirectional-rrt-50).
+Use `python demo,py --birrt --smoothing` to run [extra credit](3extra-credit---path-smoothing-10).
 
 ### Robot Control
 ```
@@ -53,7 +53,7 @@ collision_fn = get_collision_fn(ur5, UR5_JOINT_INDICES, obstacles=obstacles,
                                     attachments=[], self_collisions=True,
                                     disabled_collisions=set())
 ```
-We have provided you the function to check if a joint configuration is valid (collision-free and not voilating joint limits). Simply call `collision_fn(conf)` where `conf` is a array-type of three values. You can treat this function as a block box and you don't need to worry about its implementation. But you are welcome to take a closer look at `collision_utils.py` if interested.
+We have provided you the function to check if a joint configuration is valid (collision-free and not voilating joint limits). The joint limits for the three joints ([0, 1, 2]) are `[-2pi. 2pi]`, `[-2pi, 2pi]` and `[-pi. pi]`. Simply call `collision_fn(conf)` where `conf` is an array-type of three values.  You can treat this function as a block box and you don't need to worry about its detailed implementation. But you are welcome to take a closer look at [`collision_utils.py`](collision_utils.py) if interested.
 
 ### Visualization
 ```
@@ -68,6 +68,8 @@ def remove_marker(marker_id):
 We have also provided you with a simple function `draw_sphere_marker` to create a sphere marker given its [x, y, z] position, radius and [r, g, b, a] color. `remove_marker` will cimply remove the corresponding marker by its id. In order to draw lines to visualize the tree, take a look at the pybullet function [addUserDebugLine](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.i3ffpefe7f3).
 
 ## Details and Rubric
+Take a look at [here](https://www.cs.columbia.edu/~allen/F19/NOTES/probabilistic_path_planning.pdf) for the RRT and Bidirectional RRT algorithms.
+
 ### Part 1 - RRT (50%)
 In this part, you should implement the RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/o-RCIhsLmqw). 
 
