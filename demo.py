@@ -97,10 +97,10 @@ if __name__ == "__main__":
     if args.birrt:
         if args.smoothing:
             # using birrt with smoothing
-            path_conf = birrt()
+            path_conf = birrt_smoothing()
         else:
             # using birrt without smoothing
-            path_conf = birrt_smoothing()
+            path_conf = birrt()
     else:
         # using rrt
         path_conf = rrt()
