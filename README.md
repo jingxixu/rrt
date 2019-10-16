@@ -68,7 +68,7 @@ def remove_marker(marker_id):
 We have also provided you with a simple function `draw_sphere_marker` to create a sphere marker given its [x, y, z] position, radius and [r, g, b, a] color. `remove_marker` will cimply remove the corresponding marker by its id. In order to draw lines to visualize the tree, take a look at the pybullet function [addUserDebugLine](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.i3ffpefe7f3).
 
 ## Details and Rubric
-Take a look at [here](https://www.cs.columbia.edu/~allen/F19/NOTES/probabilistic_path_planning.pdf) for the RRT and Bidirectional RRT algorithms.
+Take a look at [here](https://www.cs.columbia.edu/~allen/F19/NOTES/probabilistic_path_planning.pdf) for the RRT and Bidirectional RRT algorithms. The implementations shown in the demo videos are slghtly different: they keep extending the tree from a closest node to the randomly sampled node until a collision happens. This is recommended but not necessary.
 
 ### Part 1 - RRT (50%)
 In this part, you should implement the RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/o-RCIhsLmqw). 
@@ -98,7 +98,9 @@ Repeat N times:
 - If so, then snip out that segment of the path.
 ```
 
-The video shows a smooting algorithm with N = 20. In your video, you should show a path shorter than the found path.
+The video shows a smooting algorithm with N = 20. In your video, you should show a path shorter than the found path. 
+
+We will test your code with the command `python demo.py --birrt --smoothing`.
 
 ## Submission Instructions
 TODO
