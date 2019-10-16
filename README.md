@@ -1,5 +1,5 @@
-# Lab 3 - Rapidly-exploring Random Tree (RRT)
-Lab 3 for [COMSW4733 Computational Aspects of Robotics](https://www.cs.columbia.edu/~allen/F19/) at Columbia University (Instructor: [Prof. Peter Allen](http://www.cs.columbia.edu/~allen/)).
+# Lab 4 - Rapidly-exploring Random Tree (RRT)
+Lab 4 for [COMSW4733 Computational Aspects of Robotics](https://www.cs.columbia.edu/~allen/F19/) at Columbia University (Instructor: [Prof. Peter Allen](http://www.cs.columbia.edu/~allen/)).
 
 
 ## Table of Contents
@@ -119,11 +119,11 @@ The video shows a smooting algorithm with N = 20. In your video, you should show
 We will test your code with the command `python demo.py --birrt --smoothing`.
 
 ## Submission Instructions
-- You should submit a `lab3_UNI1_UNI2.tar.gz` file which contains the modified repo `rrt` that you cloned.
+- You should submit a `lab4_UNI1_UNI2.tar.gz` file which contains the modified repo `rrt` that you cloned.
 - It should include all files that we need to reproduce your video demo.
 - You should replace everything in the existing `README.md` with the following content:
 	- Usage: how to run your code to reproduce your video demo. Clearly explain the functionalities of all added scripts.
 	- Method: a brief description of your methods.
-	- Video: a link (links) to the Youtube video(s) of the working demo(s)
+	- Video: a link / links to the Youtube video(s) of the working demo(s).
 	- Others: anything else you would like to include
 - **Violation of these submission instructions will result in point deduction.**
