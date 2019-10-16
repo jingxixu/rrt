@@ -120,9 +120,9 @@ We will test your code with the command `python demo.py --birrt --smoothing`.
 
 ## Submission Instructions
 - You should submit a `lab4_UNI1_UNI2.tar.gz` file which contains the modified repo `rrt` that you cloned.
-- It should include all files that we need to reproduce your video demo.
+- It should include all files that we need to reproduce your video demos.
 - You should replace everything in the existing `README.md` with the following content:
-	- Usage: how to run your code to reproduce your video demo. Clearly explain the functionalities of all added scripts.
+	- Usage: how to run your code to reproduce your video demo(s)). Clearly explain the functionalities of all added scripts.
 	- Method: a brief description of your methods.
 	- Video: a link / links to the Youtube video(s) of the working demo(s).
 	- Others: anything else you would like to include
