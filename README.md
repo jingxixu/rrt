@@ -1,6 +1,22 @@
 # Lab 3 - Rapidly-exploring Random Tree (RRT)
 Lab 3 for [COMSW4733 Computational Aspects of Robotics](https://www.cs.columbia.edu/~allen/F19/) at Columbia University (Instructor: [Prof. Peter Allen](http://www.cs.columbia.edu/~allen/)).
 
+
+## Table of Contents
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Example Code Explanation](#example-code-explanation)
+  - [Get Arguments](#get-arguments)
+  - [Robot Control](#robot-control)
+  - [Collision Checking](#collision-checking)
+  - [Visualization](#visualization)
+- [Details and Rubric](#details-and-rubric)
+  - [Part 1 - RRT (50%)](#part-1---rrt-50)
+  - [Part 2 - Bidirectional RRT (50%)](#part-2---bidirectional-rrt-50)
+  - [Extra Credit - Path Smoothing (10%)](#extra-credit---path-smoothing-10)
+- [Submission Instructions](#submission-instructions)
+
 ## Introduction
 In this lab, you are required to implement the Rapidly-exploring Random Tree (RRT) algorithms for motion planning on a 3DOF robotic arm, using the [pybullet](https://pybullet.org/wordpress/) simulator.
 
