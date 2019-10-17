@@ -115,7 +115,7 @@ Repeat N times:
 - If so, then snip out that segment of the path.
 ```
 
-The video shows a smooting algorithm with N = 20. In your video, you should show a path shorter than the found path. 
+The video shows a smooting algorithm with N = 100. In your video, you should show a path shorter than the found path. 
 
 We will test your code with the command `python demo.py --birrt --smoothing`.
 
