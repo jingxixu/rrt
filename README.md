@@ -34,7 +34,7 @@ To load the pybullet simulated environment for this lab as shown below, simply r
 python demo.py
 ```
 
-In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm (only the first three non-fixed joints are kept). The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks and a plane as obstacles. You can change the camera viewpoint by zooming in/out or pressing `ctrl` and then drag the cursor at the same time.
+In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm (only the first three non-fixed joints are kept). The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks and a plane as obstacles. You can change the camera viewpoint by zooming in/out or pressing `ctrl` and draging the cursor at the same time.
 
 <p align="center">
   <img src="environment.png", height="350">
