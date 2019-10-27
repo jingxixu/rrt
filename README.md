@@ -21,13 +21,20 @@ Lab 4 for [COMSW4733 Computational Aspects of Robotics](https://www.cs.columbia.
 In this lab, you are required to implement the Rapidly-exploring Random Tree (RRT) algorithms for motion planning on a 3DOF robotic arm, using the [pybullet](https://pybullet.org/wordpress/) simulator.
 
 ## Usage
-This repo is tested with python 2.7 and pybullet 2.5.6. To load the pybullet simulated environment for this lab as shown below, simply run
+This repo is tested with python 2.7 and pybullet 2.5.6. Install pybullet with the command
+
+```
+pip install pybullet
+```
+
+
+To load the pybullet simulated environment for this lab as shown below, simply run
 
 ```
 python demo.py
 ```
 
-In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm (only the first three non-fixed joints are kept). The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks and a plane as obstacles.
+In the environment, there is a simplified 3DOF [UR5](https://www.universal-robots.com/products/ur5-robot/?gclid=EAIaIQobChMIu9ny1NOU5QIVhJ6fCh0DKAIMEAAYASAAEgJWuvD_BwE) robotic arm (only the first three non-fixed joints are kept). The goal configuration is visualized using a red sphere marker. There are two semi-transparent black blocks and a plane as obstacles. You can change the camera viewpoint by zooming in/out or hoding `ctrl` and then drag the cursor.
 
 <p align="center">
   <img src="environment.png", height="350">
