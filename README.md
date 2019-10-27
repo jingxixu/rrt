@@ -92,10 +92,10 @@ def remove_marker(marker_id):
 We have also provided you with a simple function `draw_sphere_marker` to create a sphere marker given its [x, y, z] position, radius and [r, g, b, a] color. `remove_marker` will cimply remove the corresponding marker by its id. In order to draw lines to visualize the tree, take a look at the pybullet function [addUserDebugLine](https://docs.google.com/document/d/10sXEhzFRSnvFcl3XxNGhnD4N2SedqwdAvK3dsihxVUA/edit#heading=h.i3ffpefe7f3).
 
 ## Details and Rubric
-Take a look [here](https://www.cs.columbia.edu/~allen/F19/NOTES/probabilistic_path_planning.pdf) for the RRT and Bidirectional RRT (BiRRT) algorithms. The implementations shown in the demo videos are slghtly different: they keep extending the tree from a closest node to the randomly sampled node until a collision happens. This is recommended but not necessary.
+Take a look [here](https://www.cs.columbia.edu/~allen/F19/NOTES/probabilistic_path_planning.pdf) for the RRT and Bidirectional RRT (BiRRT) algorithms. 
 
 ### Part 1 - RRT (50%)
-In this part, you should implement the RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/o-RCIhsLmqw). 
+In this part, you should implement the RRT algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/YnL0Ptl9X_8). 
 
 - Build the tree and visualization (30%). 
 - Find and visualize the solution path (10%).
@@ -104,7 +104,7 @@ In this part, you should implement the RRT algorithm to plan a collision-free mo
 We will test your code with the command `python demo.py`.
 
 ### Part 2 - Bidirectional RRT (50%)
-In this part, you should implement the bidirectional RRT (BiRRT) algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/4nFmFcLg5RQ).
+In this part, you should implement the bidirectional RRT (BiRRT) algorithm to plan a collision-free motion to reach the target configuration (specified in the `demo.py`). See a video demo for this part [here](https://youtu.be/HfPewUBq5ks).
 
 - Build the tree and visualization (30%). You should use different colors for different trees.
 - Find and visualize the solution path (10%).
@@ -113,7 +113,7 @@ In this part, you should implement the bidirectional RRT (BiRRT) algorithm to pl
 We will test your code with the command `python demo.py --birrt`.
 
 ### Extra Credit - Path Smoothing (10%)
-In this part, you should implement the following path smoothing algorithm on the found path with BiRRT. See a video demo for this part [here](https://youtu.be/wJ4rrIBirxg).
+In this part, you should implement the following path smoothing algorithm on the found path with BiRRT. See a video demo for this part [here](https://youtu.be/gUDvOKZAmoY).
 
 ```
 Repeat N times:
